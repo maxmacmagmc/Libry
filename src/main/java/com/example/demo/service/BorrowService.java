@@ -34,5 +34,17 @@ public class BorrowService {
         bookRepository.save(book);
 
         return borrowRecordRepository.save(Record);
+
+        }
+
+    @Transactional
+    public BorrowRecord returnBook(Long borrowId) {
+        BorrowRecord record = borrowRecordRepository.findById(borrowId)
+                .orElseThrow(() -> new RuntimeException("ไม่เจอรายการยืมนี้"));
+        Book book = record.getBook();
+        book.setStatus(Book.BookStatus.AVAILABLE);
+        bookRepository.save(book);
+        record.setReturnDate(LocalDate.now());
+        return borrowRecordRepository.save(record);
+        }
     }
-}

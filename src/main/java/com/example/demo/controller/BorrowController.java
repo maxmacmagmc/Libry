@@ -15,4 +15,8 @@ public class BorrowController {
     public BorrowRecord borrow(@RequestParam Long userId,@RequestParam Long bookId){
         return borrowService.borrowBook(userId,bookId);
     }
+    @PutMapping("/return/{borrowId}")
+    public BorrowRecord returnBook(@PathVariable Long borrowId) {
+        return borrowService.returnBook(borrowId);
+    }
 }
