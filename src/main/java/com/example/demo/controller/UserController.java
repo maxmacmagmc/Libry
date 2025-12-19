@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.UserRequest;
+import com.example.demo.dto.UserResponse;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +16,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public UserResponse createUser(@RequestBody UserRequest request) {
+        return userService.createUser(request);
     }
 
     @GetMapping
-    public List<User> getAllUsers(){
+    public List<UserResponse> getAllUsers(){
         return userService.getAllUsers();
     }
 }
