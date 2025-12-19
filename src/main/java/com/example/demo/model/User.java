@@ -13,7 +13,4 @@ public class User {
     private String email;
     private String name;
 
-    // Optional: ถ้าอยากเห็นว่ายืมอะไรไปบ้าง
-    // @OneToMany(mappedBy = "user")
-    // private List<BorrowRecord> borrowRecords;
 }

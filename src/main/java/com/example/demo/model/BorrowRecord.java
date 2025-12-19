@@ -17,9 +17,9 @@ public class BorrowRecord {
 
     @ManyToOne
     @JoinColumn(name = "book_id", nullable = false)
-    private Book book; // เชื่อมไปหา Book
+    private Book book;
 
-    private LocalDate borrowDate; // วันที่ยืม
-    private LocalDate dueDate;    // กำหนดคืน
-    private LocalDate returnDate; // วันที่คืนจริง (ถ้าเป็น null แปลว่ายังไม่คืน)
+    private LocalDate borrowDate;
+    private LocalDate dueDate;
+    private LocalDate returnDate;
 }
