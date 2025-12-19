@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.example.demo.dto.BookRequest;
 
 @Service
 public  class BookService {
@@ -15,7 +16,12 @@ public  class BookService {
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }
-    public Book createBook(Book book){
+    public Book createBook(BookRequest request){
+        Book book = new Book();
+        book.setTitle(request.getTitle());
+        book.setAuthor(request.getAuthor());
+        book.setIsbn(request.getIsbn());
+        book.setStatus(Book.BookStatus.AVAILABLE);
         return bookRepository.save(book);
     }
 }
